@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<h1>Contact</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        {{ form_row(form.lastName, {'attr': {'placeholder': "Votre nom"}}) }}
+        {{ form_row(form.firstName, {'attr': {'placeholder': "Votre prénom"}}) }}
+        {{ form_row(form.phone, {'attr': {'placeholder': "Votre numéro de téléphone"}}) }}
+        {{ form_row(form.email, {'attr': {'placeholder': "Votre email"}}) }}
+        {{ form_row(form.message, {'attr': {'placeholder': "Votre message"}}) }}
+
+    <button type="submit" class="btn btn-primary">Envoyer votre message</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}
